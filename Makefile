@@ -8,13 +8,19 @@ CXX = g++
 CFLAGS   = -g -Wall
 CXXFLAGS = -g -Wall
 
-all: hello hello-plus
+all: hello hello-plus reverse test_reverse
 
 hello: hello.c
 	$(CC) $(CFLAGS) -o $@ $<
 
 hello-plus: hello-plus.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
+
+reverse: reverse.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+test_reverse: test_reverse.c
+	$(CC) $(CFLAGS) -lcgreen -o $@ $<
 
 clean:
 	$(RM) hello hello-plus
