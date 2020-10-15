@@ -1,15 +1,18 @@
 #include <cgreen/cgreen.h>
+#include "reverseStr.h"
 
 Describe(Reverse);
 BeforeEach(Reverse) {}
 AfterEach(Reverse) {}
 
 Ensure(Reverse, can_reverse) {
-    assert_that(1 == 1);
-}
+    char input[] = "abc";
+    char expected[] = "cba";
+    char *output = reverseStr(input);
 
-int main(int argc, char **argv) {
-    TestSuite *suite = create_test_suite();
-    add_test_with_context(suite, Reverse, can_reverse);
-    return run_test_suite(suite, create_text_reporter());
+    // the output should be the same length as the input
+    assert_that(strlen(input) == strlen(output));
+
+    // the output should be the same as the expected output
+    assert_that(expected, is_equal_to_string(output));
 }

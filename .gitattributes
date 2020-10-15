@@ -1,1 +1,5 @@
-Makefile    whitespace=trailing-space,indent-with-non-tab,space-before-tab,tabwidth=4
+makefile text          whitespace=-tab-in-indent,trailing-space,tabwidth=4
+Makefile text          whitespace=-tab-in-indent,trailing-space,tabwidth=4
+*.mk     text          whitespace=-tab-in-indent,trailing-space,tabwidth=4
+*.cpp    text diff=cpp whitespace=tab-in-indent,trailing-space,tabwidth=4
+*.hpp    text diff=cpp whitespace=tab-in-indent,trailing-space,tabwidth=4

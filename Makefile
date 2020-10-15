@@ -1,26 +1,30 @@
 # the compiler: gcc for C program, define as g++ for C++
 CC  = gcc
-CXX = g++
 
 # compiler flags:
 #  -g    adds debugging information to the executable file
 #  -Wall turns on most, but not all, compiler warnings
 CFLAGS   = -g -Wall
-CXXFLAGS = -g -Wall
+# LIBS     = -lm
+TESTLIBS = -lcgreen
 
-all: hello hello-plus reverse test_reverse
+all: hello reverse test_reverse.so
 
 hello: hello.c
 	$(CC) $(CFLAGS) -o $@ $<
 
-hello-plus: hello-plus.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $<
+# Compile to intermediate .o file for linking with tests
+reverse: reverseStr.o reverse.o
+	$(CC) $(CFLAGS) $^ -o $@
 
-reverse: reverse.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $<
+test_reverse.so: test_reverse.o reverseStr.o
+	$(CC) -shared -o $@ $^ $(TESTLIBS)
 
-test_reverse: test_reverse.c
-	$(CC) $(CFLAGS) -lcgreen -o $@ $<
+%.o: %.c
+	$(CC) $(CFLAGS) -fPIC -c -o $@ $^
+
+tests: test_reverse.so
+	cgreen-runner $^
 
 clean:
-	$(RM) hello hello-plus
+	$(RM) hello reverse test_reverse *.o *.so
