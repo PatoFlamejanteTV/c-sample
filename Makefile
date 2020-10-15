@@ -10,14 +10,14 @@ TESTLIBS = -lcgreen
 
 all: hello reverse test_reverse.so
 
-hello: hello.c
+hello: src/hello.c
 	$(CC) $(CFLAGS) -o $@ $<
 
 # Compile to intermediate .o file for linking with tests
-reverse: reverseStr.o reverse.o
+reverse: src/reverseStr.o src/reverse.o
 	$(CC) $(CFLAGS) $^ -o $@
 
-test_reverse.so: test_reverse.o reverseStr.o
+test_reverse.so: src/test_reverse.o src/reverseStr.o
 	$(CC) -shared -o $@ $^ $(TESTLIBS)
 
 %.o: %.c
@@ -27,4 +27,4 @@ tests: test_reverse.so
 	cgreen-runner $^
 
 clean:
-	$(RM) hello reverse test_reverse *.o *.so
+	$(RM) hello reverse test_reverse src/*.o *.so
