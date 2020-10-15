@@ -14,6 +14,6 @@ It demonstrates
   * defining a ``Makefile`` to compile and link the program, based on the file extension
   * can make it easier to produce both the program, and the unit tests
 * Adding a Unit Test framework
-  * (Cgreen)[https://github.com/cgreen-devs/cgreen] looks promising
-  * (Documentation)[https://github.com/cgreen-devs/cgreen/releases]
-  * DEB package is available from their (GitHub releases page)[https://github.com/cgreen-devs/cgreen/releases]
+  * [Cgreen](https://github.com/cgreen-devs/cgreen) looks promising
+  * [Documentation](https://github.com/cgreen-devs/cgreen/releases)
+  * DEB package is available from their [GitHub releases page](https://github.com/cgreen-devs/cgreen/releases)
