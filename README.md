@@ -36,7 +36,14 @@ It uses a file named ``Makefile`` (which **MUST** use tabs for indentation), to 
 * how to make a target from a source
 * it also has the idea of PHONY targets (without sources), so you can just run a command
 
-The format is roughly,
+To build a target, run the command ``make <target>``
+* the Makefile has a special target called **all** which builds everything
+* the "all" target is default if none is specified, so
+  * ``make`` by itself will build all targets
+* there is a target named **tests** which will build and run the tests
+  * ``make tests``
+
+The Makefile format is roughly,
 ```
 <target>: <source1> [<source2>...]
     <some command to transfor source into target>
