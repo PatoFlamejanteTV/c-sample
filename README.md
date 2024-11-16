@@ -25,7 +25,7 @@ Use it to tracks changes to files.
 
 ## Microsoft Visual Studio Code
 
-(Visual Studio Code)(https://code.visualstudio.com/) is a useful cross-platform IDE (integrated development environment).
+[Visual Studio Code](https://code.visualstudio.com/) is a useful cross-platform IDE (integrated development environment).
 
 ## Make
 
